@@ -14,8 +14,8 @@ alphanumeric ({alphabetic} | {digit})
 {sign}{digit}+.{digit}+     {printf("FLOAT_LIT(%s)\n", yytext);}
 {sign}.{digit}+             {printf("FLOAT_LIT(%s)\n", yytext);}
 \".+\"                      {printf("STRING_LIT(%s)\n", yytext);}
-"false"                     {printf("BOOL_FALSE\n", yytext);}
-"true"                      {printf("BOOL_TRUE\n", yytext);}
+"false"                     {printf("BOOL_FALSE\n");}
+"true"                      {printf("BOOL_TRUE\n");}
 "not"                       {printf("NOT\n");}
 "and"|"&&"                  {printf("AND\n");}                            
 "or"|"||"                   {printf("OR\n");}
@@ -31,11 +31,11 @@ alphanumeric ({alphabetic} | {digit})
 "Map"                       {printf("MAP_TYPE\n");}
 "Set"                       {printf("SET_TYPE\n");}
 "switch"                    {printf("SWITCH\n");}
-"case"                      {prtinf("CASE\n");}
+"case"                      {printf("CASE\n");}
 "default"                   {printf("DEFAULT\n");} 
 "while"                     {printf("WHILE\n");}
 "begin"                     {printf("BEGIN\n");}
-"var"                       {printf("VAR"\n);}
+"var"                       {printf("VAR\n");}
 "end"                       {printf("END\n");}
 "dowhile"                   {printf("DO\n");}
 "if"                        {printf("IF\n");}
@@ -67,7 +67,8 @@ alphanumeric ({alphabetic} | {digit})
 "["                         {printf("SQUARE_BRACKETS_LEFT\n");}  
 "]"                         {printf("SQUARE_BRACKETS_RIGHT\n");}  
 "{"                         {printf("CURLY_BRACKETS_LEFT\n");}  
-"}"                         {printf("CURLY_BRACKETS_RIGHT\n");}                     
+"}"                         {printf("CURLY_BRACKETS_RIGHT\n");}
+","                         {printf("COMMA\n");}                      
 [a-zA-Z][a-zA-Z0-9]*	      {printf("ID(%s)\n",yytext);}
 .                           {printf("Invalid character.\n");}
 
